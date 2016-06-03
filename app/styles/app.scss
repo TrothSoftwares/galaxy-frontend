@@ -1,10 +1,30 @@
-$c1=#333;
-$bc1=rgba(255,255,255,0.1);
-$light1=rgba(255,255,255,0.5);
+$c1:#333;
+$bc1:rgba(255,255,255,0.1);
+$light1:rgba(255,255,255,0.18);
+
+@font-face {
+    font-family: Lato;
+    src: url(fonts/Lato-Semibold.ttf);
 }
-.container
+@font-face {
+    font-family: Lato-light;
+    src: url(fonts/Lato-Light.ttf);
+}
+body,html
+{
+	// width: 100%;
+	// height: 100%;
+	color: #e5e5e5;
+	font-family: Lato;
+}
+
+.container-fluid
 {
 	height:100%;
+}
+.ember-view
+{
+	height: 100%
 }
 .grey
 {
@@ -23,7 +43,13 @@ $light1=rgba(255,255,255,0.5);
 .sidebar
 {
 	height: 100%;
-	width: 10%;
+	width: 15%;
 	border-right: 1px solid $bc1;
 	background:$light1;
+}
+.sidebar-item
+{
+	width: 100%;
+	height: 20%;
+	border-bottom: 1px solid $bc1;
 }
