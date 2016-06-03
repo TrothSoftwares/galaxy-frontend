@@ -1,0 +1,29 @@
+$c1=#333;
+$bc1=rgba(255,255,255,0.1);
+$light1=rgba(255,255,255,0.5);
+}
+.container
+{
+	height:100%;
+}
+.grey
+{
+	width: 100%;
+	height: 100%;
+	background:$c1;
+}
+.ember-view
+{
+	height: 100%;
+}
+.login
+{
+	padding: 20% 25%;
+}
+.sidebar
+{
+	height: 100%;
+	width: 10%;
+	border-right: 1px solid $bc1;
+	background:$light1;
+}

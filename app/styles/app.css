@@ -1,0 +1,40 @@
+body,html
+{
+	width: 100%;
+	height: 100%;
+	color: #e5e5e5;
+	font-family: Lato;
+}
+@font-face {
+    font-family: Lato;
+    src: url(fonts/Lato-Semibold.ttf);
+}
+@font-face {
+    font-family: Lato-light;
+    src: url(fonts/Lato-Light.ttf);
+}
+.container
+{
+	height:100%;
+}
+.grey
+{
+	width: 100%;
+	height: 100%;
+	background:#333;
+}
+.ember-view
+{
+	height: 100%;
+}
+.login
+{
+	padding: 20% 25%;
+}
+.sidebar
+{
+	height: 100%;
+	width: 10%;
+	border-right: 1px solid rgba(255,255,255,0.1) ;
+	background: rgba(255, 255, 255, 0.2);
+}
