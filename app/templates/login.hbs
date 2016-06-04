@@ -1,21 +1,36 @@
-<div class="container">
-<div class="grey">
-<div class="login">
-<form role="form">
-  <div class="form-group">
-    <label for="email">Email address:</label>
-    <input type="email" class="form-control" id="email">
+<div class="ui middle aligned center aligned grid ">
+  <div class="column" style="max-width:450px;">
+    <h2 class="ui teal image header" style="margin-top:100px;">
+
+      <div class="content">
+        <img src="images/logo.png" >
+      </div>
+    </h2>
+    <form class="ui large form">
+      <div class="ui stacked segment">
+        <h2 class="ui left aligned header">Login</h2>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            {{input type="text" value=email placeholder="E-mail address"}}
+
+
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            {{input type="password" value=password placeholder="Password"}}
+          </div>
+        </div>
+        <div class="ui fluid large teal submit button" {{action "authenticate" disabled=isLoginButtonDisabled}}>Login</div>
+      </div>
+
+
+    </form>
+
+    <!-- <div class="ui message">
+      New to us? <a href="#">Sign Up</a>
+    </div> -->
   </div>
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" class="form-control" id="pwd">
-  </div>
-  <div class="checkbox">
-    <label><input type="checkbox"> Remember me</label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
 </div>
-</div>
-</div>
-{{outlet}}

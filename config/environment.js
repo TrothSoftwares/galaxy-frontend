@@ -6,6 +6,15 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    contentSecurityPolicy: {
+      'default-src': "'self' *",
+      'script-src': "'self' 'unsafe-inline' *",
+      'connect-src': "'self' *",
+      'font-src': "'self'  data: http://fonts.gstatic.com * ",
+      'media-src': "'self' *",
+      'style-src': "'self' 'unsafe-inline' *",
+      'img-src' : "'self' data: http://fonts.gstatic.com *"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -19,7 +28,26 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['simple-auth-devise'] = {
+  tokenAttributeName: 'token',
+  identificationAttributeName: 'email',
+  serverTokenEndpoint:  ENV.APP.host  + '/users/sign_in',
+  authorizer: 'devise',
+  crossOriginWhitelist: ['*'],
+};
+
+ENV['ember-simple-auth'] = {
+  authenticationRoute: 'login',
+  routeAfterAuthentication: 'dashboard',
+  routeIfAlreadyAuthenticated: 'dashboard'
+};
+
+
+
+
   if (environment === 'development') {
+    ENV.APP.host =  'http://localhost:3000';
+
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -40,6 +68,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.APP.host =  'http://galaxy-backend.herokuapp.com';
 
   }
 

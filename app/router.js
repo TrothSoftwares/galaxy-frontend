@@ -7,7 +7,15 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
-  this.route('dashboard');
+  this.route('dashboard', {path: '/'}, function() {
+    this.route('enquiry-forms', function() {
+      this.route('new');
+      this.route('enquiry-form', function() {
+        this.route('view');
+        this.route('edit');
+      });
+    });
+  });
 });
 
 export default Router;
