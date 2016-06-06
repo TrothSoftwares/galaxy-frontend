@@ -25,7 +25,7 @@
               content=employees
               optionValuePath="content.id"
               optionLabelPath="content.name"
-              selection=employeename
+              selection=employee
               placeholder="Select Attended By" }}
             </div>
             <div class="five wide column ">
@@ -36,23 +36,40 @@
 
       <div class="two fields">
           <div class="field">
-            <label>Initial Stock</label>
-            {{input placeholder="Initial Stock" type="number" value=initialstocklevel}}
+            <label>Contact</label>
+            {{input placeholder="Contact" type="text" value=contact}}
           </div>
           <div class="field">
-            <label>Buy Price</label>
-            {{input placeholder="Buy Price" type="number" value=buyprice }}
+            <label>Email</label>
+            {{input placeholder="Email" type="email" value=email }}
+          </div>
+          <div class="field">
+            <label>Remarks</label>
+            {{input placeholder="Remarks" type="text" value=remarks }}
           </div>
         </div>
         <div class="two fields">
           <div class="field">
-            <label>Initial Cost Price</label>
-            {{input placeholder="Initial Cost Price" type="number" value=initialcostprice}}
+            <label>Message</label>
+            {{input placeholder="Message" type="text" value=message}}
           </div>
           <div class="field">
-            <label>Retail Price</label>
-            {{input placeholder="Retails Price"    type="number" value=retailprice}}
+            <label>Followup Date</label>
+            {{pikaday-input  placeholder="Select Date" value=followupdate}}
           </div>
+
+
+          <div class=" eleven wide column ">
+      <select onchange={{action "selectStatus" value="target.value"}} class="form-control">
+              {{#each statuses as |statusChoice|}}
+                <option value={{statusChoice}} selected={{eq tool.status statusChoice}}>{{statusChoice}}</option>
+              {{/each}}
+        </select>
+
+
+    </div>
+
+
         </div>
 
         <div class="two fields">
@@ -60,6 +77,7 @@
 
         </div>
         <div class="ui blue small submit button {{isCreateProductButtonDisabled}}"   {{action "createProduct"}}>Save</div>
+          <div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "createEnquiry"}}>Submit</div>
 
 
       </div>
