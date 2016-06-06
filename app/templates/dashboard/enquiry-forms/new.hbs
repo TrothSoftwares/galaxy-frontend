@@ -1,69 +1,78 @@
+
 <div class="ui inverted header sec3-h" >
   Add New Enquiry
 </div>
-<div class="ui inverted small form sec3-con">
+<div class="ui inverted small form sec3-con grid">
+  <div class="eight wide column">
   <div class="ui inverted dividing header">
     Basic Info
   </div>
-  <div class=" two fields">
-    <div class="field {{validItemcodeError}}">
-      <label>Name</label>
-      {{input placeholder="Name"  type="text"   value=name}}
-    </div>
 
-    <div class="field">
-      <label>Address</label>
-      {{input placeholder="Address"  type="text" value=address}}
-    </div>
+      <div class="field {{validItemcodeError}}">
+        <label>Name</label>
+        {{input placeholder="Name"  type="text"   value=name}}
+      </div>
+      <div class="field">
+        <label>Address</label>
+        {{input placeholder="Address"  type="text" value=address}}
+      </div>
+
+        <div class="two fields">
+            <div class="field">
+              <label>Contact</label>
+              {{input placeholder="Contact" type="text" value=contact}}
+            </div>
+            <div class="field">
+              <label>Email</label>
+              {{input placeholder="Email" type="email" value=email }}
+            </div>
+          </div>
 
   </div>
-  <div class="two fields">
-
-      <div class="field">
-        <label> Attended By</label>
-        <div class="ui grid">
-          <div class="eleven wide column ">
-            {{ember-selectize
-              content=employees
-              optionValuePath="content.id"
-              optionLabelPath="content.name"
-              selection=employee
-              placeholder="Select Attended By" }}
-            </div>
-            <div class="five wide column ">
-      </div>
-    </div>
+  <div class="eight wide column">
+    <div class="ui inverted dividing header">
+Misc    </div>
+        <div class="field">
+          <label> Attended By</label>
+          <div class="ui grid">
+            <div class="eleven wide column ">
+              {{ember-selectize
+                content=employees
+                optionValuePath="content.id"
+                optionLabelPath="content.name"
+                selection=employee
+                placeholder="Select Attended By" }}
+              </div>
+              <div class="five wide column ">
         </div>
       </div>
+          </div>
 
-      <div class="two fields">
-          <div class="field">
-            <label>Contact</label>
-            {{input placeholder="Contact" type="text" value=contact}}
-          </div>
-          <div class="field">
-            <label>Email</label>
-            {{input placeholder="Email" type="email" value=email }}
-          </div>
           <div class="field">
             <label>Remarks</label>
             {{input placeholder="Remarks" type="text" value=remarks }}
           </div>
         </div>
+      </div>
+
+        <div class="ui inverted divider"></div>
+<div class="ui inverted small form sec3-con">
         <div class="ui inverted dividing header">
           Follow Up Info
         </div>
 
-        <div class="two fields">
           <div class="field">
             <label>Message</label>
             {{input placeholder="Message" type="text" value=message}}
           </div>
+          <div class="two fields">
+
           <div class="field">
             <label>Followup Date</label>
             {{pikaday-input  placeholder="Select Date" value=followupdate}}
           </div>
-          <div class=" eleven wide column ">
+          <div class=" field ">
+            <label>Status</label>
       <select onchange={{action "selectStatus" value="target.value"}} class="form-control">
               {{#each statuses as |statusChoice|}}
                 <option value={{statusChoice}} selected={{eq tool.status statusChoice}}>{{statusChoice}}</option>
@@ -71,7 +80,16 @@
         </select>
     </div>
         </div>
+
         <div class="two fields">
+
+  </div>
+
+
+
+
+
+
+          <div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "createEnquiry"}}>Save</div>
+
         </div>
-          <div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "createEnquiry"}}>Submit</div>
-      </div>
