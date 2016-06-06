@@ -1,1 +1,88 @@
-{{outlet}}
+
+
+<div class="ui small form segment">
+
+
+
+
+  <div class=" two fields">
+    <div class="field {{validItemcodeError}}">
+      <label>Item Code</label>
+      {{input placeholder="Item Code"  type="text"   value=itemcode  key-up="validItemcode"}}
+      <label>{{validItemcodeMessage}}</label>
+    </div>
+
+    <div class="field">
+      <label>Product Name</label>
+      {{input placeholder="Product Name"  type="text" value=productname}}
+    </div>
+
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <label> Supplier </label>
+      <div class="ui grid">
+        <div class="twelve wide column ">
+          {{ember-selectize
+            content=suppliers
+            optionValuePath="content.id"
+            optionLabelPath="content.companyname"
+            selection=supplier
+            placeholder="Select Supplier"
+            class="ui left floated"
+          }}
+        </div>
+        <div class="four wide column ">
+      <div class="ui blue small  submit button"  {{action "openSupplierModal"}}>New Supplier</div>
+    </div>
+      </div>
+    </div>
+
+
+      <div class="field">
+        <label> Product type</label>
+        <div class="ui grid">
+          <div class="eleven wide column ">
+            {{ember-selectize
+              content=producttypes
+              optionValuePath="content.id"
+              optionLabelPath="content.typename"
+              selection=typename
+              placeholder="Select Product Type" }}
+            </div>
+            <div class="five wide column ">
+        <div class="ui blue small submit button"  {{action "openProductTypeModal"}}>New Product Type</div>
+      </div>
+    </div>
+        </div>
+      </div>
+
+      <div class="two fields">
+          <div class="field">
+            <label>Initial Stock</label>
+            {{input placeholder="Initial Stock" type="number" value=initialstocklevel}}
+          </div>
+          <div class="field">
+            <label>Buy Price</label>
+            {{input placeholder="Buy Price" type="number" value=buyprice }}
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Initial Cost Price</label>
+            {{input placeholder="Initial Cost Price" type="number" value=initialcostprice}}
+          </div>
+          <div class="field">
+            <label>Retail Price</label>
+            {{input placeholder="Retails Price"    type="number" value=retailprice}}
+          </div>
+        </div>
+
+        <div class="two fields">
+
+
+        </div>
+        <div class="ui blue small submit button {{isCreateProductButtonDisabled}}"   {{action "createProduct"}}>Submit</div>
+                    
+
+      </div>
