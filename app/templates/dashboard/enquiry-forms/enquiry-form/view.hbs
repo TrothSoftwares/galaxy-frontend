@@ -19,7 +19,7 @@ Follow Up History #{{enquiry.id}}</div>
       <td>{{followup.id}}</td>
       <td>{{followup.message}}</td>
       <td>{{followup.remarks}}</td>
-      <td>{{followup.date}}</td>
+      <td>{{moment-format followup.date inputFormat}}</td>
     </tr>
     {{/each}}
     {{else}}
