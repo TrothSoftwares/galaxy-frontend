@@ -6,7 +6,7 @@ statuses :["Select","Pending", "Sold" , "Rejected"],
 
 actions:{
   selectStatus(status) {
-  this.set('status', status);
+  this.get('enquiry').set('status', status);
   },
 
   updateFollowup:function(){
@@ -20,6 +20,8 @@ actions:{
         enquiry :enquiry,
         remarks :this.get('remarks')
       });
+
+      enquiry.save();
 
       followup.save().then(function(){
         controller.set('date','');

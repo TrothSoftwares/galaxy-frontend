@@ -57,6 +57,10 @@ Misc    </div>
 
         <div class="ui inverted divider"></div>
 <div class="ui inverted small form sec3-con">
+        <div class="ui inverted dividing header">
+          Follow Up Info
+        </div>
+
           <div class="field">
             <label>Message</label>
             {{input placeholder="Message" type="text" value=message}}
@@ -69,13 +73,11 @@ Misc    </div>
           </div>
           <div class=" field ">
             <label>Status</label>
-          <div class=" eleven wide column ">
       <select onchange={{action "selectStatus" value="target.value"}} class="form-control">
               {{#each statuses as |statusChoice|}}
                 <option value={{statusChoice}} selected={{eq tool.status statusChoice}}>{{statusChoice}}</option>
               {{/each}}
         </select>
-      </div>
     </div>
         </div>
 
@@ -90,4 +92,4 @@ Misc    </div>
 
           <div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "createEnquiry"}}>Save</div>
 
-      </div>
+        </div>

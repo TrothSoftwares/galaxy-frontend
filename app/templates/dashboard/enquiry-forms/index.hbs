@@ -7,16 +7,19 @@
   <thead>
     <tr>
     <th>ID</th>
-    <th>Tool</th>
+    <th>Name</th>
+    <th>Status</th>
+    <th>Follow Up</th>
     <th>View</th>
     <th></th>
-    <th></th>
-  </tr></thead>
+   </tr></thead>
   <tbody>
     {{#each enquiries as |enquiry|}}
     <tr>
       <td>{{enquiry.id}}</td>
       <td>{{enquiry.name}}</td>
+      <td>{{enquiry.status}}</td>
+      <td>{{moment-from-now enquiry.followupdate }}</td>
       <td>{{link-to "View"  'dashboard.enquiry-forms.enquiry-form.view'  enquiry }}</td>
       <td>{{link-to "Edit"  'dashboard.enquiry-forms.enquiry-form.edit'  enquiry }}</td>
     </tr>
