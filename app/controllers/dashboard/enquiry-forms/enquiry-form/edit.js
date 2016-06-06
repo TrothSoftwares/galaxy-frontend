@@ -45,6 +45,8 @@ actions:{
         controller.set('remarks','');
       });
 
+      controller.transitionToRoute('dashboard.enquiry-forms.enquiry-form.view' , enquiry);
+
   },
 
 

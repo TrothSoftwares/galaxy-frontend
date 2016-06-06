@@ -57,7 +57,7 @@ export default Ember.Controller.extend({
             controller.set('date','');
             controller.set('employee','');
 
-          controller.transitionToRoute('dashboard');
+          controller.transitionToRoute('dashboard.enquiry-forms.index');
         });
 
 
