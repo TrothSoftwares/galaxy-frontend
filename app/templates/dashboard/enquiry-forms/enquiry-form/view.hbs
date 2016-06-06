@@ -10,6 +10,7 @@ Follow Up History #{{enquiry.id}}</div>
     <th>ID</th>
     <th>Client Message</th>
     <th>Remarks</th>
+    <th>Date</th>
   </tr></thead>
   <tbody>
     {{#if enquiry.followups}}
@@ -18,6 +19,7 @@ Follow Up History #{{enquiry.id}}</div>
       <td>{{followup.id}}</td>
       <td>{{followup.message}}</td>
       <td>{{followup.remarks}}</td>
+      <td>{{followup.date}}</td>
     </tr>
     {{/each}}
     {{else}}
