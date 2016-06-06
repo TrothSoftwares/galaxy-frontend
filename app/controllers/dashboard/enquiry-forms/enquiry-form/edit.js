@@ -46,6 +46,8 @@ actions:{
       });
       controller.transitionToRoute('dashboard.enquiry-forms.enquiry-form.view', enquiry);
 
+      controller.transitionToRoute('dashboard.enquiry-forms.enquiry-form.view' , enquiry);
+
   },
 
 
