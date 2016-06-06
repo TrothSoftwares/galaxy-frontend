@@ -1,152 +1,65 @@
-<div class="ui inverted header sec3-h">
+<div class="ui inverted header sec3-h" >
   Add New Enquiry
 </div>
-<div class="sec3-con">
-  <form class="ui inverted form">
-  <h4 class="ui inverted dividing header">Shipping Information</h4>
-  <div class="field">
-    <label>Name</label>
-    <div class="two fields">
-      <div class="field">
-        <input type="text" name="shipping[first-name]" placeholder="First Name">
-      </div>
-      <div class="field">
-        <input type="text" name="shipping[last-name]" placeholder="Last Name">
-      </div>
+
+<div class="ui inverted small form sec3-con">
+  <div class=" two fields">
+    <div class="field {{validItemcodeError}}">
+      <label>Name</label>
+      {{input placeholder="Name"  type="text"   value=name}}
     </div>
-  </div>
-  <div class="field">
-    <label>Billing Address</label>
-    <div class="fields">
-      <div class="twelve wide field">
-        <input type="text" name="shipping[address]" placeholder="Street Address">
-      </div>
-      <div class="four wide field">
-        <input type="text" name="shipping[address-2]" placeholder="Apt #">
-      </div>
+
+    <div class="field">
+      <label>Address</label>
+      {{input placeholder="Address"  type="text" value=address}}
     </div>
+
   </div>
   <div class="two fields">
-    <div class="field">
-      <label>State</label>
-      <select class="ui fluid dropdown">
-        <option value="">State</option>
 
-      </select>
-    </div>
-    <div class="field">
-      <label>Country</label>
-      <div class="ui fluid search selection dropdown">
-        <input type="hidden" name="country">
-        <i class="dropdown icon"></i>
-        <div class="default text">Select Country</div>
-        <div class="menu">
-  </div>
+      <div class="field">
+        <label> Attended By</label>
+        <div class="ui grid">
+          <div class="eleven wide column ">
+            {{ember-selectize
+              content=employees
+              optionValuePath="content.id"
+              optionLabelPath="content.name"
+              selection=employeename
+              placeholder="Select Attended By" }}
+            </div>
+            <div class="five wide column ">
       </div>
     </div>
-  </div>
-  <h4 class="ui inverted dividing header">Billing Information</h4>
-  <div class="field">
-    <label>Card Type</label>
-    <div class="ui selection dropdown">
-      <input type="hidden" name="card[type]">
-      <div class="default text">Type</div>
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <div class="item" data-value="visa">
-          <i class="visa icon"></i>
-          Visa
-        </div>
-        <div class="item" data-value="amex">
-          <i class="amex icon"></i>
-          American Express
-        </div>
-        <div class="item" data-value="discover">
-          <i class="discover icon"></i>
-          Discover
         </div>
       </div>
-    </div>
-  </div>
-  <div class="fields">
-    <div class="seven wide field">
-      <label>Card Number</label>
-      <input type="text" name="card[number]" maxlength="16" placeholder="Card #">
-    </div>
-    <div class="three wide field">
-      <label>CVC</label>
-      <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC">
-    </div>
-    <div class="six wide field">
-      <label>Expiration</label>
+
       <div class="two fields">
-        <div class="field">
-          <select class="ui fluid search dropdown" name="card[expire-month]">
-            <option value="">Month</option>
-            <option value="1">January</option>
-            <option value="2">February</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
-            <option value="5">May</option>
-            <option value="6">June</option>
-            <option value="7">July</option>
-            <option value="8">August</option>
-            <option value="9">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-          </select>
+          <div class="field">
+            <label>Initial Stock</label>
+            {{input placeholder="Initial Stock" type="number" value=initialstocklevel}}
+          </div>
+          <div class="field">
+            <label>Buy Price</label>
+            {{input placeholder="Buy Price" type="number" value=buyprice }}
+          </div>
         </div>
-        <div class="field">
-          <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year">
+        <div class="two fields">
+          <div class="field">
+            <label>Initial Cost Price</label>
+            {{input placeholder="Initial Cost Price" type="number" value=initialcostprice}}
+          </div>
+          <div class="field">
+            <label>Retail Price</label>
+            {{input placeholder="Retails Price"    type="number" value=retailprice}}
+          </div>
         </div>
+
+        <div class="two fields">
+
+
+        </div>
+        <div class="ui blue small submit button {{isCreateProductButtonDisabled}}"   {{action "createProduct"}}>Save</div>
+
+
       </div>
-    </div>
-  </div>
-   <h4 class="ui dividing header">Receipt</h4>
-   <div class="field">
-    <label>Send Receipt To:</label>
-    <div class="ui fluid multiple search selection dropdown">
-      <input type="hidden" name="receipt">
-      <i class="dropdown icon"></i>
-      <div class="default text">Saved Contacts</div>
-      <div class="menu">
-        <div class="item" data-value="jenny" data-text="Jenny">
-          <img class="ui mini avatar image" src="/images/avatar/small/jenny.jpg">
-          Jenny Hess
-        </div>
-        <div class="item" data-value="elliot" data-text="Elliot">
-          <img class="ui mini avatar image" src="/images/avatar/small/elliot.jpg">
-          Elliot Fu
-        </div>
-        <div class="item" data-value="stevie" data-text="Stevie">
-          <img class="ui mini avatar image" src="/images/avatar/small/stevie.jpg">
-          Stevie Feliciano
-        </div>
-        <div class="item" data-value="christian" data-text="Christian">
-          <img class="ui mini avatar image" src="/images/avatar/small/christian.jpg">
-          Christian
-        </div>
-        <div class="item" data-value="matt" data-text="Matt">
-          <img class="ui mini avatar image" src="/images/avatar/small/matt.jpg">
-          Matt
-        </div>
-        <div class="item" data-value="justen" data-text="Justen">
-          <img class="ui mini avatar image" src="/images/avatar/small/justen.jpg">
-          Justen Kitsune
-        </div>
-      </div>
-    </div>
-  </div>
-   <div class="ui segment">
-    <div class="field">
-      <div class="ui toggle checkbox">
-        <input type="checkbox" name="gift" tabindex="0" class="hidden">
-        <label>Do not include a receipt in the package</label>
-      </div>
-    </div>
-  </div>
-  <div class="ui button" tabindex="0">Submit Order</div>
-</form>
-</div>
-{{outlet}}
