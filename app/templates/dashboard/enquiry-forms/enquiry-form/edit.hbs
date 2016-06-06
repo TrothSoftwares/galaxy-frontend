@@ -4,7 +4,7 @@
 
 <div class="ui inverted small form sec3-con">
   <div class="ui inverted dividing header">
-    Basic Info
+    Followup Info
   </div>
 
 
@@ -45,7 +45,51 @@
 
 
         </div>
-        <div class="ui blue small submit button {{isCreateProductButtonDisabled}}"   {{action "updateFollowup"}}>Save</div>
+        <div class="ui blue small submit button {{isCreateFollowupButtonDisabled}}"   {{action "updateFollowup"}}>Save</div>
 
 
       </div>
+
+
+
+
+
+
+      <div class="ui inverted small form sec3-con">
+        <div class="ui inverted dividing header">
+          Basic Info
+        </div>
+
+
+                <div class="field">
+                  <label>Name</label>
+                  {{input placeholder="Name"  type="text"   value=enquiry.name}}
+                </div>
+
+                <div class="field">
+                  <label>Address</label>
+                  {{input placeholder="Address"  type="text" value=enquiry.address}}
+                </div>
+                <div class="two fields">
+                  <div class="field">
+                    <label>Contact</label>
+                    {{input placeholder="Contact" type="text" value=enquiry.contact}}
+                  </div>
+
+                <div class="field">
+                  <label>Email</label>
+                  {{input placeholder="Email" type="text" value=enquiry.email}}
+                </div>
+
+
+
+              </div>
+
+              <div class="two fields">
+
+
+              </div>
+              <div class="ui blue small submit button {{isupdateEnquiryButtonDisabled}}"   {{action "updateEnquiry"}}>Save</div>
+
+
+            </div>

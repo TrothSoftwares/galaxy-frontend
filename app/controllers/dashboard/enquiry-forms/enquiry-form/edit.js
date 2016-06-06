@@ -1,6 +1,21 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+
+  isCreateFollowupButtonDisabled: Ember.computed( 'message'   ,  function() {
+    if( Ember.isEmpty(this.get('message'))
+  ){return 'disabled';}
+  else{return '';}
+  }),
+
+
+  isupdateEnquiryButtonDisabled: Ember.computed( 'enquiry.name'   ,  function() {
+    if( Ember.isEmpty(this.get('enquiry.name'))
+  ){return 'disabled';}
+  else{return '';}
+  }),
+
+
 statuses :["Select","Pending", "Sold" , "Rejected"],
 
 
@@ -30,6 +45,13 @@ actions:{
         controller.set('remarks','');
       });
 
+  },
+
+
+
+  updateEnquiry:function(){
+    var enquiry = this.get('enquiry');
+    enquiry.save();
   }
 }
 });

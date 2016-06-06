@@ -12,6 +12,7 @@ Follow Up History #{{enquiry.id}}</div>
     <th>Remarks</th>
   </tr></thead>
   <tbody>
+    {{#if enquiry.followups}}
     {{#each enquiry.followups as |followup|}}
     <tr>
       <td>{{followup.id}}</td>
@@ -19,7 +20,17 @@ Follow Up History #{{enquiry.id}}</div>
       <td>{{followup.remarks}}</td>
     </tr>
     {{/each}}
+    {{else}}
+    <tr>
+      <td></td>
+      <td style="text-align:center">No Followups Yet</td>
+      <td></td>
+    </tr>
+
+    {{/if}}
+
   </tbody>
+
 </table>
 
 </div>
