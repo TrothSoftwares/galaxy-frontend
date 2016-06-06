@@ -1,10 +1,13 @@
-<div class="ui inverted header sec3-h " >Add New Enquiry</div>
 
+<div class="ui inverted header sec3-h" >
+  Add New Enquiry
+</div>
 <div class="ui inverted small form sec3-con grid">
   <div class="eight wide column">
-    <div class="ui inverted dividing header">
-      Basic Info
-    </div>
+  <div class="ui inverted dividing header">
+    Basic Info
+  </div>
+
       <div class="field {{validItemcodeError}}">
         <label>Name</label>
         {{input placeholder="Name"  type="text"   value=name}}
@@ -53,22 +56,20 @@ Misc    </div>
       </div>
 
         <div class="ui inverted divider"></div>
-
-      <div class="ui inverted small form sec3-con">
-        <div class="two fields">
+<div class="ui inverted small form sec3-con">
           <div class="field">
             <label>Message</label>
             {{input placeholder="Message" type="text" value=message}}
           </div>
+          <div class="two fields">
+
           <div class="field">
             <label>Followup Date</label>
             {{pikaday-input  placeholder="Select Date" value=followupdate}}
           </div>
-        </div>
-
-        <div class="two fields">
           <div class=" field ">
             <label>Status</label>
+          <div class=" eleven wide column ">
       <select onchange={{action "selectStatus" value="target.value"}} class="form-control">
               {{#each statuses as |statusChoice|}}
                 <option value={{statusChoice}} selected={{eq tool.status statusChoice}}>{{statusChoice}}</option>
@@ -76,15 +77,17 @@ Misc    </div>
         </select>
       </div>
     </div>
-
-
-
-
+        </div>
 
         <div class="two fields">
 
+  </div>
 
-        </div>
+
+
+
+
+
           <div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "createEnquiry"}}>Save</div>
 
-        </div>
+      </div>

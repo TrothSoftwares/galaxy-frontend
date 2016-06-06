@@ -1,1 +1,51 @@
-{{outlet}}
+<div class="ui inverted header sec3-h" >
+  Follow Up for Enquiry #{{enquiry.id}}
+</div>
+
+<div class="ui inverted small form sec3-con">
+  <div class="ui inverted dividing header">
+    Basic Info
+  </div>
+
+
+          <div class="field">
+            <label>Client Message</label>
+            {{input placeholder="Client Message" type="text" value=message}}
+          </div>
+
+          <div class="field">
+            <label>Remarks</label>
+            {{input placeholder="Remarks" type="text" value=remarks}}
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>Date</label>
+              {{pikaday-input  placeholder="Select Date" value=date}}
+            </div>
+
+          <div class="field">
+            <label>Followup Date</label>
+            {{pikaday-input  placeholder="Select Date" value=followupdate}}
+          </div>
+
+          <div class=" field ">
+            <label>Status</label>
+
+      <select onchange={{action "selectStatus" value="target.value"}} class="form-control">
+              {{#each statuses as |statusChoice|}}
+                <option value={{statusChoice}} selected={{eq enquiry.status statusChoice}}>{{statusChoice}}</option>
+              {{/each}}
+        </select>
+    </div>
+
+
+        </div>
+
+        <div class="two fields">
+
+
+        </div>
+        <div class="ui blue small submit button {{isCreateProductButtonDisabled}}"   {{action "updateFollowup"}}>Save</div>
+
+
+      </div>

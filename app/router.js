@@ -10,7 +10,7 @@ Router.map(function() {
   this.route('dashboard', {path: '/'}, function() {
     this.route('enquiry-forms', function() {
       this.route('new');
-      this.route('enquiry-form', function() {
+      this.route('enquiry-form', {path: ':id'}, function() {
         this.route('view');
         this.route('edit');
       });

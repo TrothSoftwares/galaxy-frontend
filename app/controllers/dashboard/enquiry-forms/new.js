@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
 
 
 
-  statuses :["Select","Issued", "Returned" , "Damaged", "Lost"],
+  statuses :["Select","Pending", "Sold" , "Rejected"],
 
   actions:{
     selectStatus(status) {
@@ -36,7 +36,7 @@ export default Ember.Controller.extend({
 
 
       enquiry.save().then(function(enquiry){
-      
+
 
           var followup = controller.store.createRecord('followup', {
               date :new Date(),

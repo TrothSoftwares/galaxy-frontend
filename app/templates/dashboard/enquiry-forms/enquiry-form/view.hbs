@@ -1,1 +1,25 @@
-{{outlet}}
+
+<div class="ui inverted header sec3-h" >
+Follow Up History #{{enquiry.id}}</div>
+<div class="sec3-con" >
+
+
+  <table class="ui celled  table" >
+  <thead>
+    <tr>
+    <th>ID</th>
+    <th>Client Message</th>
+    <th>Remarks</th>
+  </tr></thead>
+  <tbody>
+    {{#each enquiry.followups as |followup|}}
+    <tr>
+      <td>{{followup.id}}</td>
+      <td>{{followup.message}}</td>
+      <td>{{followup.remarks}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+</div>

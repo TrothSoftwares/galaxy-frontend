@@ -8,6 +8,8 @@
     <tr>
     <th>ID</th>
     <th>Tool</th>
+    <th>View</th>
+    <th></th>
     <th></th>
   </tr></thead>
   <tbody>
@@ -15,6 +17,8 @@
     <tr>
       <td>{{enquiry.id}}</td>
       <td>{{enquiry.name}}</td>
+      <td>{{link-to "View"  'dashboard.enquiry-forms.enquiry-form.view'  enquiry }}</td>
+      <td>{{link-to "Edit"  'dashboard.enquiry-forms.enquiry-form.edit'  enquiry }}</td>
     </tr>
     {{/each}}
   </tbody>
