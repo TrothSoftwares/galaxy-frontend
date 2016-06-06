@@ -1,0 +1,22 @@
+<div class="ui black segment" >
+  <div class="ui left floated header">  Tools Issued  </div>
+
+
+  <table class="ui celled table">
+  <thead>
+    <tr>
+    <th>ID</th>
+    <th>Tool</th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+    {{#each enquiries as |enquiry|}}
+    <tr>
+      <td>{{enquiry.id}}</td>
+      <td>{{enquiry.name}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+</div>
