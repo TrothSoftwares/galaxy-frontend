@@ -1,7 +1,6 @@
 <div class="ui inverted header sec3-h" >
   Add New Enquiry
 </div>
-
 <div class="ui inverted small form sec3-con">
   <div class="ui inverted dividing header">
     Basic Info
@@ -60,27 +59,16 @@
             <label>Followup Date</label>
             {{pikaday-input  placeholder="Select Date" value=followupdate}}
           </div>
-
-
           <div class=" eleven wide column ">
       <select onchange={{action "selectStatus" value="target.value"}} class="form-control">
               {{#each statuses as |statusChoice|}}
                 <option value={{statusChoice}} selected={{eq tool.status statusChoice}}>{{statusChoice}}</option>
               {{/each}}
         </select>
-
-
     </div>
-
-
         </div>
-
         <div class="two fields">
-
-
         </div>
         <div class="ui blue small submit button {{isCreateProductButtonDisabled}}"   {{action "createProduct"}}>Save</div>
           <div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "createEnquiry"}}>Submit</div>
-
-
       </div>

@@ -1,1 +1,23 @@
-{{outlet}}
+<div class="ui black segment" >
+  <div class="ui left floated header">  Follow Ups  </div>
+
+
+  <table class="ui celled table">
+  <thead>
+    <tr>
+    <th>ID</th>
+    <th>Client Message</th>
+    <th>Remarks</th>
+  </tr></thead>
+  <tbody>
+    {{#each enquiry.followups as |followup|}}
+    <tr>
+      <td>{{followup.id}}</td>
+      <td>{{followup.message}}</td>
+      <td>{{followup.remarks}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+</div>
