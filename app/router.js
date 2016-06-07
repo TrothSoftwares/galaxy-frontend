@@ -22,6 +22,11 @@ Router.map(function() {
         this.route('view');
       });
     });
+    this.route('sales', function() {
+      this.route('salepending');
+      this.route('salehistory');
+      this.route('new');
+    });
   });
 });
 
