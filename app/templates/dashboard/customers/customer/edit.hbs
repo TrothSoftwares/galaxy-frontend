@@ -6,7 +6,7 @@
   </div>
   {{/link-to}}
   <div class="ui header item">
-Edit Customer :ID #1
+Edit Customer :ID #{{customer.id}}
 </div>
 </div>
 <div class="ui inverted small form sec3-con grid">
@@ -14,24 +14,24 @@ Edit Customer :ID #1
 
       <div class="field {{validItemcodeError}}">
         <label>Name</label>
-        {{input placeholder="Name"  type="text"   value=name}}
+        {{input placeholder="Name"  type="text"   value=customer.name}}
       </div>
       <div class="field">
         <label>Address</label>
-        {{input placeholder="Address"  type="text" value=address}}
+        {{input placeholder="Address"  type="text" value=customer.address}}
       </div>
 
         <div class="two fields">
             <div class="field">
               <label>Contact</label>
-              {{input placeholder="Contact" type="text" value=contact}}
+              {{input placeholder="Contact" type="text" value=customer.contact}}
             </div>
             <div class="field">
               <label>Email</label>
-              {{input placeholder="Email" type="email" value=email }}
+              {{input placeholder="Email" type="email" value=customer.email }}
             </div>
           </div>
-          <div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "createEnquiry"}}>Save</div>
+          <div class="ui blue small submit button {{isSaveCustomerButtonDisabled}}"   {{action "SaveCustomer"}}>Save</div>
 
   </div>
 

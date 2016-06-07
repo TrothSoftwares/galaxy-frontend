@@ -17,7 +17,7 @@ Router.map(function() {
     });
     this.route('customers', function() {
       this.route('new');
-      this.route('customer', function() {
+      this.route('customer', {path: ':id'},  function() {
         this.route('edit');
         this.route('view');
       });
