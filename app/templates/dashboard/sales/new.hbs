@@ -14,12 +14,34 @@
 <div class="ui inverted small form sec3-con grid">
   <div class="eight wide column">
     <div class="ui dividing inverted header">Customer </div>
-    <div class="field ">
-      <label>Select Customer From Enquiry</label>
-      {{input placeholder="Name"  type="text"   value=name}}
-    </div>
 
+
+{{#if (eq enableEnquiryCustomer true)}}
+    <div class="field">
+      <label> Select Customer From Enquiry </label>
+      <div class="ui grid">
+        <div class="twelve wide column ">
+          {{ember-selectize
+            content=enquiries
+            optionValuePath="content.id"
+            optionLabelPath="content.name"
+            selection=enquirycustomer
+            placeholder="Select Enquiry Customer"
+            class="ui left floated"
+          }}
+        </div>
+      </div>
+    </div>
+{{/if}}
+{{#if (eq enableEnquiryCustomer false)}}
+<div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "enableEnquiryCustomer"}}>Select From Enquiry Customer</div>
+{{/if}}
 <div class="ui horizontal inverted divider">Or</div>
+{{#if (eq enableNewCustomer false)}}
+<div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "enableNewCustomer"}}>New Customer</div>
+{{/if}}
+{{#if (eq enableNewCustomer true)}}
+<div>
 <div class="ui dividing inverted header">Add New Customer </div>
 
     <div class="field {{validItemcodeError}}">
@@ -42,6 +64,9 @@
           </div>
         </div>
         <div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "createEnquiry"}}>Save</div>
+
+      </div>
+      {{/if}}
 
 </div>
 <div class="eight wide column">
