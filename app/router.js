@@ -15,6 +15,13 @@ Router.map(function() {
         this.route('edit');
       });
     });
+    this.route('customers', function() {
+      this.route('new');
+      this.route('customer', function() {
+        this.route('edit');
+        this.route('view');
+      });
+    });
   });
 });
 
