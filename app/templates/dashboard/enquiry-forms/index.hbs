@@ -14,9 +14,9 @@
     <th></th>
    </tr></thead>
   <tbody>
-    {{#each pendingEnquiries as |enquiry|}}
+    {{#each pendingEnquiries as |enquiry index|}}
     <tr>
-      <td>{{enquiry.id}}</td>
+      <td>{{incrementone index}}</td>
       <td>{{enquiry.name}}</td>
       <td>{{enquiry.status}}</td>
       <td>{{moment-from-now enquiry.followupdate }}</td>

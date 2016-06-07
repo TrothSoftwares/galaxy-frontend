@@ -21,20 +21,18 @@
           <th>Name</th>
           <th>Total</th>
           <th>Paid Till Now</th>
-          <th>Remarks</th>
-          <th>Remainder Call</th>
           <th class="right aligned">Update</th>
         </tr>
       </thead>
       <tbody>
+        {{#each salesPending as |sale index|}}
         <tr>
-          <td>John</td>
-          <td>1000000</td>
-          <td>500000</td>
-          <td>Approved</td>
-          <td>3 Days Remaining</td>
-          <td class="right aligned"> {{#link-to 'dashboard.customers.customer.view' }}Update{{/link-to}}</td>
+          <td>{{sale.customer.name}}</td>
+          <td>{{sale.totalprice}}</td>
+          <td>111</td>
+          <td class="right aligned"> {{#link-to 'dashboard.sales.salehistory.view' sale }}Update{{/link-to}}</td>
         </tr>
+        {{/each}}
 
       </tbody>
     </table>  </div>
@@ -45,18 +43,18 @@
           <th>Name</th>
           <th>Total</th>
           <th>Paid Till Now</th>
-          <th>Remarks</th>
-          <th class="right aligned">Update</th>
+          <th class="right aligned">View</th>
         </tr>
       </thead>
       <tbody>
+        {{#each salesHistory as |sale index|}}
         <tr>
-          <td>John</td>
-          <td>Approved</td>
-          <td>Approved</td>
-          <td>Approved</td>
-          <td class="right aligned"> {{#link-to 'dashboard.customers.customer.view' }}Update{{/link-to}}</td>
+          <td>{{sale.customers.name}}</td>
+          <td>{{sale.totalprice}}</td>
+          <td>444</td>
+          <td class="right aligned"> {{#link-to 'dashboard.sales.salehistory.view' sale }}View{{/link-to}}</td>
         </tr>
+        {{/each}}
 
       </tbody>
     </table>  </div>
