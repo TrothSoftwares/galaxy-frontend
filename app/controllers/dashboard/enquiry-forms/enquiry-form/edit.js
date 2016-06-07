@@ -45,6 +45,11 @@ actions:{
         controller.set('remarks','');
       });
 
+      controller.notifications.addNotification({
+      message: 'Saved!' ,
+      type: 'success',
+      autoClear: true
+      });
       controller.transitionToRoute('dashboard.enquiry-forms.enquiry-form.view' , enquiry);
 
   },
@@ -52,8 +57,15 @@ actions:{
 
 
   updateEnquiry:function(){
+    var controller = this;
     var enquiry = this.get('enquiry');
     enquiry.save();
+
+    controller.notifications.addNotification({
+    message: 'Saved!' ,
+    type: 'success',
+    autoClear: true
+  });
   }
 }
 });

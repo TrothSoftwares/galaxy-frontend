@@ -57,6 +57,11 @@ export default Ember.Controller.extend({
             controller.set('date','');
             controller.set('employee','');
 
+            controller.notifications.addNotification({
+            message: 'Saved!' ,
+            type: 'success',
+            autoClear: true
+          });
           controller.transitionToRoute('dashboard.enquiry-forms.index');
         });
 
