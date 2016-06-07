@@ -33,9 +33,35 @@
       </div>
     </div>
 {{/if}}
+
+
+
+
 {{#if (eq enableEnquiryCustomer false)}}
 <div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "enableEnquiryCustomer"}}>Select From Enquiry Customer</div>
 {{/if}}
+<div class="ui horizontal inverted divider">Or</div>
+{{#if (eq enableCustomer true)}}
+    <div class="field">
+      <label> Select Default Customers </label>
+      <div class="ui grid">
+        <div class="twelve wide column ">
+          {{ember-selectize
+            content=customers
+            optionValuePath="content.id"
+            optionLabelPath="content.name"
+            selection=defaultcustomer
+            placeholder="Select Customer"
+            class="ui left floated"
+          }}
+        </div>
+      </div>
+    </div>
+{{/if}}
+{{#if (eq enableCustomer false)}}
+<div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "enableCustomer"}}>Select From Customers</div>
+{{/if}}
+
 <div class="ui horizontal inverted divider">Or</div>
 {{#if (eq enableNewCustomer false)}}
 <div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "enableNewCustomer"}}>New Customer</div>

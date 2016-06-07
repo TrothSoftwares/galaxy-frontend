@@ -4,6 +4,7 @@ export default Ember.Route.extend({
   model: function() {
     return Ember.RSVP.hash({
     enquiries: this.store.findAll('enquiry'),
+    customers: this.store.findAll('customer'),
   });
   },
 
@@ -12,6 +13,6 @@ export default Ember.Route.extend({
 
 
   setupController: function(controller ,model) {
-       controller.set('enquiries',model.enquiries);
+       controller.set('customers',model.customers);
   }
 });
