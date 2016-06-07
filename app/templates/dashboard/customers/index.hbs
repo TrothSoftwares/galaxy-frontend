@@ -1,5 +1,7 @@
 
+
 <div class="ui inverted menu sec3-h" style="padding:0px 0px 0px 0px !important; " >
+  {{link-to 'New Customer' 'dashboard.customers.new'  class="ui blue inverted mini right floated button "}}
   <!-- {{#link-to 'dashboard.enquiry-forms' }}
   <div class="item">
     <img src="images/bk2.png" alt="" />
@@ -10,21 +12,25 @@
 </div>
 </div>
 <div class="sec3-con" >
-<table class="ui structured celled table">
+  <table class="ui celled structured table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Status</th>
-      <th class="right aligned">Notes</th>
-    </tr>
-  </thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Contact</th>
+    <th>Email</th>
+    <th>View</th>
+   </tr></thead>
   <tbody>
+    {{#each customers as |customer index|}}
     <tr>
-      <td>John</td>
-      <td>Approved</td>
-      <td class="right aligned"> {{#link-to 'dashboard.customers.customer.view' }}View{{/link-to}}</td>
+      <td>{{incrementone index}}</td>
+      <td>{{customer.name}}</td>
+      <td>{{customer.contact}}</td>
+      <td>{{customer.email}}</td>
+      <td>{{link-to "View"  'dashboard.customers.customer.view'  customer }}</td>
     </tr>
-    
+    {{/each}}
   </tbody>
 </table>
 </div>

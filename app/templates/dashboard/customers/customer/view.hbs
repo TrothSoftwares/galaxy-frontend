@@ -6,7 +6,7 @@
   </div>
   {{/link-to}}
   <div class="ui header item">
- Customer ID: #1
+ Customer ID: #{{customer.id}}
 </div>
 </div>
 <div class="ui inverted small form sec3-con grid">
@@ -14,22 +14,23 @@
 
       <div class="inline field  {{validItemcodeError}}">
         <label class="viewlabel1">Name</label>:
-        <label class="viewlabel2">Name</label>
+        <label class="viewlabel2">{{customer.name}}</label>
       </div>
       <div class="inline field">
         <label class="viewlabel1">Address</label>:
-        <label class="viewlabel2">address</label>
+        <label class="viewlabel2">{{customer.address}}</label>
       </div>
 
             <div class="inline field">
               <label class="viewlabel1">Contact</label>:
-              <label class="viewlabel2">Con1</label>
+              <label class="viewlabel2">{{customer.contact}}</label>
             </div>
             <div class="inline field">
               <label class="viewlabel1">Email</label>:
-              <label class="viewlabel2">mail@mail.com</label>
+              <label class="viewlabel2">{{customer.email}}</label>
             </div>
-          <div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "createEnquiry"}}>Edit</div>
+          {{link-to 'Edit' 'dashboard.customers.customer.edit'  class="ui blue inverted mini right floated button "}}
+
 
   </div>
 
