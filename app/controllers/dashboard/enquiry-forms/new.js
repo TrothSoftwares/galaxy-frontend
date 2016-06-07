@@ -41,6 +41,7 @@ export default Ember.Controller.extend({
           var followup = controller.store.createRecord('followup', {
               date :new Date(),
               message :controller.get('message'),
+              remarks :controller.get('remarks'),
               followupdate :controller.get('followupdate'),
               enquiry:enquiry
             });

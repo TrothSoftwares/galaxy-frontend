@@ -1,6 +1,15 @@
 
-<div class="ui inverted header sec3-h" >
-Follow Up History #{{enquiry.id}}</div>
+
+<div class="ui inverted menu sec3-h" style="padding:0px 0px 0px 0px !important; " >
+  {{#link-to 'dashboard.enquiry-forms' }}
+  <div class="item">
+    <img src="images/bk2.png" alt="" />
+  </div>
+  {{/link-to}}
+  <div class="ui header item">
+  Follow Up  History #{{enquiry.id}}
+</div>
+</div>
 <div class="sec3-con" >
 
 
@@ -10,6 +19,7 @@ Follow Up History #{{enquiry.id}}</div>
     <th>ID</th>
     <th>Client Message</th>
     <th>Remarks</th>
+    <th>Date</th>
   </tr></thead>
   <tbody>
     {{#if enquiry.followups}}
@@ -18,6 +28,7 @@ Follow Up History #{{enquiry.id}}</div>
       <td>{{followup.id}}</td>
       <td>{{followup.message}}</td>
       <td>{{followup.remarks}}</td>
+      <td>{{moment-format followup.date inputFormat}}</td>
     </tr>
     {{/each}}
     {{else}}

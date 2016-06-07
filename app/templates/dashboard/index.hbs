@@ -1,0 +1,85 @@
+
+<div class="ui  vertical masthead center aligned segment">
+
+
+<img src="images/logo.gif" height="100px">
+<h1 class="ui header">-Management Portal-</h1>
+<div class="ui clearing divider"></div>
+<div class="ui center aligned grid" >
+  <div class="five wide column ">
+
+    {{#link-to 'dashboard.index'}}
+    <div class="ui left aligned segment grid hseg">
+      <div class="four wide center aligned column ">
+        <i class="huge grey block  layout icon" style="padding-top:10px;color:#00A1B1 !important" ></i>
+      </div>
+      <div class="twelve wide column ">
+      <h3 class="ui dividing header"style="margin-bottom:5px ">Inventory</h3>
+      <p style="color:#545">Manage Stocks and Inventory</p>
+    </div>
+    </div>
+    {{/link-to}}
+    </div>
+  <div class="five wide column ">
+    {{#link-to 'dashboard.index'}}
+    <div class="ui left aligned segment grid hseg">
+      <div class="four wide center aligned column ">
+        <i class="huge grey users   icon" style="padding-top:10px;color:#338d11 !important"></i>
+      </div>
+      <div class="twelve wide column ">
+      <h3 class="ui dividing header"style="margin-bottom:5px ">Miscellaneous</h3>
+      <p style="color:#545">Manage your contacts</p>
+    </div>
+    </div>
+    {{/link-to}}
+  </div>
+
+  <div class="five wide column ">
+    {{#link-to 'dashboard.index'}}
+    <div class="ui left aligned segment grid hseg">
+      <div class="four wide column ">
+        <i class="huge grey suitcase   icon"style="padding-top:10px;color:#e1ac26 !important" ></i>
+      </div>
+      <div class="twelve wide column ">
+      <h3 class="ui dividing header"style="margin-bottom:5px ">Stock Control</h3>
+      <p style="color:#545"> Adjust Stocks</p>
+    </div>
+    </div>
+{{/link-to}}
+  </div>
+</div>
+<div class="ui center aligned grid" >
+
+
+  <div class="five wide column ">
+    {{#link-to 'dashboard.index'}}
+    <div class="ui left aligned segment grid hseg">
+      <div class="four wide column ">
+        <i class="huge grey newspaper   icon"style="padding-top:10px;color:#ff0000 !important" ></i>
+      </div>
+      <div class="twelve wide column ">
+      <h3 class="ui dividing header"style="margin-bottom:5px ">Issuance</h3>
+      <p style="color:#545">Manage your Sales Orders</p>
+    </div>
+    </div>
+    {{/link-to}}
+  </div>
+
+  <div class="five wide column ">
+    {{#link-to 'dashboard.index'}}
+    <div class="ui left aligned segment grid hseg">
+      <div class="four wide column ">
+        <i class="huge  bar chart  brown icon"style="padding-top:10px;color:" ></i>
+      </div>
+      <div class="twelve wide column ">
+      <h3 class="ui dividing header"style="margin-bottom:5px ">Reports</h3>
+      <p style="color:#545">Generate Reports</p>
+    </div>
+    </div>
+    {{/link-to}}
+  </div>
+  </div>
+
+
+
+</div>{{outlet}}

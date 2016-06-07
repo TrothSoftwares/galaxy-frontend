@@ -1,0 +1,32 @@
+
+<div class="ui inverted menu sec3-h" style="padding:0px 0px 0px 0px !important; " >
+  <!-- {{#link-to 'dashboard.enquiry-forms' }}
+  <div class="item">
+    <img src="images/bk2.png" alt="" />
+  </div>
+  {{/link-to}} -->
+  <div class="ui header item">
+  Customers
+</div>
+</div>
+<div class="sec3-con" >
+<table class="ui structured celled table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+      <th class="right aligned">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John</td>
+      <td>Approved</td>
+      <td class="right aligned"> {{#link-to 'dashboard.customers.customer.view' }}View{{/link-to}}</td>
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+
+{{outlet}}

@@ -44,6 +44,7 @@ actions:{
         controller.set('followupdate','');
         controller.set('remarks','');
       });
+      controller.transitionToRoute('dashboard.enquiry-forms.enquiry-form.view', enquiry);
 
       controller.notifications.addNotification({
       message: 'Saved!' ,
