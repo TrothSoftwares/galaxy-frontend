@@ -1,1 +1,65 @@
-{{outlet}}
+
+
+<div class="ui inverted menu sec3-h" style="padding:0px 0px 0px 0px !important; " >
+  {{#link-to 'dashboard.sales' }}
+  <div class="item">
+    <img src="images/bk2.png" alt="" />
+  </div>
+  {{/link-to}}
+  <div class="ui header item">
+  New Sale
+</div>
+</div>
+
+<div class="ui inverted small form sec3-con grid">
+  <div class="eight wide column">
+    <div class="ui dividing inverted header">Customer </div>
+    <div class="field ">
+      <label>Select Customer From Enquiry</label>
+      {{input placeholder="Name"  type="text"   value=name}}
+    </div>
+
+<div class="ui horizontal inverted divider">Or</div>
+<div class="ui dividing inverted header">Add New Customer </div>
+
+    <div class="field {{validItemcodeError}}">
+      <label>Name</label>
+      {{input placeholder="Name"  type="text"   value=name}}
+    </div>
+    <div class="field">
+      <label>Address</label>
+      {{input placeholder="Address"  type="text" value=address}}
+    </div>
+
+      <div class="two fields">
+          <div class="field">
+            <label>Contact</label>
+            {{input placeholder="Contact" type="text" value=contact}}
+          </div>
+          <div class="field">
+            <label>Email</label>
+            {{input placeholder="Email" type="email" value=email }}
+          </div>
+        </div>
+        <div class="ui blue small submit button {{isCreateEnquiryButtonDisabled}}"   {{action "createEnquiry"}}>Save</div>
+
+</div>
+<div class="eight wide column">
+  <div class="ui dividing inverted header">Sales Info </div>
+
+  <div class="field ">
+    <label>Total Price</label>
+    {{input placeholder="Total Price"  type="text"   value=name}}
+  </div>
+  <div class="field">
+    <label>Installments / Month</label>
+    {{input placeholder="Installments / Month"  type="text" value=address}}
+  </div>
+  <div class="field ">
+        <label>Number of Installments</label>
+        {{input placeholder="Number of Installments"  type="text"   value=name}}
+      </div>
+      <div class="ui blue small submit button "   {{action ""}}>Create</div>
+
+</div>
+</div>{{outlet}}
