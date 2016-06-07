@@ -23,8 +23,12 @@ Router.map(function() {
       });
     });
     this.route('sales', function() {
-      this.route('salepending');
-      this.route('salehistory');
+      this.route('salepending', {path: ':id'}, function() {
+        this.route('view');
+      });
+      this.route('salehistory', {path: ':id'}, function() {
+        this.route('view');
+      });
       this.route('new');
     });
   });

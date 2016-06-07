@@ -23,9 +23,9 @@
   </tr></thead>
   <tbody>
     {{#if enquiry.followups}}
-    {{#each enquiry.followups as |followup|}}
+    {{#each enquiry.followups as |followup index|}}
     <tr>
-      <td>{{followup.id}}</td>
+      <td>{{incrementone index}}</td>
       <td>{{followup.message}}</td>
       <td>{{followup.remarks}}</td>
       <td>{{moment-format followup.date inputFormat}}</td>
