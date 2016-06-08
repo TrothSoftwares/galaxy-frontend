@@ -33,7 +33,7 @@ export default Ember.Controller.extend({
     createSale:function(){
 
       var controller =this;
-      var name,address,contact,email;
+      var customer,name,address,contact,email;
 
       if(this.get('enableEnquiryCustomer') === true){
         name = this.get('enquirycustomer.name');
@@ -48,16 +48,25 @@ export default Ember.Controller.extend({
         email = this.get('newcustomeremail');
     }
 
-    var customer = controller.store.createRecord('customer', {
+
+if(this.get('enableCustomer') !==true){
+     customer = controller.store.createRecord('customer', {
         name :name,
         address :address,
         contact :contact,
         email :email
       });
-
       customer.save().then(function(){
 
+        });
+      }
+if(this.get('enableCustomer') ===true){
+  customer = this.get('defaultcustomer');
+}
+
+
         var sale = controller.store.createRecord('sale', {
+            status :'Incomplete',
             totalprice :controller.get('totalprice'),
             installpricepermonth : controller.get('installpricepermonth'),
             months :controller.get('months'),
@@ -73,7 +82,7 @@ export default Ember.Controller.extend({
           controller.transitionToRoute('dashboard.sales.index');
           });
 
-      });
+
     }
   }
 });
