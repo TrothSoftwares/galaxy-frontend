@@ -48,7 +48,7 @@
       <tbody>
         {{#each salesHistory as |sale index|}}
         <tr>
-          <td>{{sale.customers.name}}</td>
+          <td>{{sale.customer.name}}</td>
           <td>{{sale.totalprice}}</td>
           <td>444</td>
           <td class="right aligned"> {{#link-to 'dashboard.sales.salehistory.view' sale }}View{{/link-to}}</td>

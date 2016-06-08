@@ -4,6 +4,14 @@ export default Ember.Controller.extend({
 
 
 
+ismarkCompletedButtonActive: Ember.computed( 'sale.balanceamount'   ,  function() {
+  if(this.get('sale.balanceamount') !== 0)
+  {return 'disabled';}
+  else{return '';}
+  }),
+
+
+
   isupdateSaleButtonEnabled: Ember.computed( 'sale.totalprice'   ,  function() {
     if( Ember.isEmpty(this.get('sale.totalprice'))
   ){return 'disabled';}
@@ -84,6 +92,12 @@ export default Ember.Controller.extend({
 
     deleteInstallment:function(installment){
       installment.destroyRecord();
+    },
+
+    markCompleted:function(){
+      var sale = this.get('sale');
+      sale.set('status','Completed');
+      sale.save();
     }
 
 

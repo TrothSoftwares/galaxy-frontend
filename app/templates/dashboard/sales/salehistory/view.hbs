@@ -67,8 +67,17 @@
 </div>
 
 
+
+
+
+{{#if (eq sale.status 'Incomplete')}}
+
+
 <div class="eight wide column">
   <div class="ui dividing inverted header">Sales Info </div>
+
+
+  <button class="ui primary mini button {{ismarkCompletedButtonActive}}" {{action "markCompleted"}} >Mark as Completed</button>
 
   <div class="field ">
     <label>Total Price</label>
@@ -121,7 +130,7 @@
       </div>
 </div>
 
-
+{{/if}}
 
 
 
