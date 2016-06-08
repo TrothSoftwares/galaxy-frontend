@@ -75,59 +75,36 @@
 
 <div class="eight wide column">
   <div class="ui dividing inverted header">Sales Info </div>
+  <div class="seg1">
+<div class="ui right aligned inverted dividing tiny header">Total Price</div>
+<div class="ui right aligned inverted  bigc header">Rs. {{sale.totalprice}} /-</div>
+</div>
 
-
+  <div class="seg2">
+  <div class="ui right aligned inverted dividing tiny header">Amount Paid</div>
+  <div class="ui right aligned inverted  bigc header">Rs. {{sale.paidtillnow}} /-</div>
+  </div>
+  <div class="seg3">
+  <div class="ui right aligned inverted dividing tiny header">Balance Amount</div>
+  <div class="ui right aligned inverted  bigc header">Rs. {{sale.balanceamount}} /-</div>
+  </div>
+  <div class="clearfix"></div>
+<div class="seg4">
+<div class="ui right aligned inverted dividing tiny header">Number of Installments</div>
+<div class="ui right aligned inverted  bigc header"> {{sale.months}} </div>
+</div>
+<div class="seg5">
+<div class="ui right aligned inverted dividing tiny header">Amount Per Month</div>
+<div class="ui right aligned inverted  bigc header"> {{sale.permonth}} </div>
+</div>
   <button class="ui primary mini button {{ismarkCompletedButtonActive}}" {{action "markCompleted"}} >Mark as Completed</button>
 
-  <div class="field ">
-    <label>Total Price</label>
-    {{input placeholder="Total Price"  type="text"   value=sale.totalprice}}
-  </div>
-  <div class="field ">
-    <div class="ui tag labels">
-  <a class="ui label large">
-    Paid Till Now : {{sale.paidtillnow}}
-  </a>
-</div>
-  </div>
-  <div class="field ">
-    <div class="ui tag labels">
-  <a class="ui label large">
-    Balance : {{sale.balanceamount}}
-  </a>
-</div>
-  </div>
-  <div class="field">
-    <label>Installments / Month</label>
-    {{input placeholder="Installments / Month"  type="text" value=sale.installpricepermonth}}
-  </div>
-  <div class="field ">
-    <div class="ui tag labels">
-  <a class="ui label large">
-    Number of Installments : {{sale.months}}
-  </a>
-</div>
-      </div>
+
       <div class="ui blue small submit button {{isupdateSaleButtonEnabled}}"   {{action "updateSale"}}>Save</div>
 
       <div class="ui blue small submit button "   {{action "newInstallment"}}>New Installment</div>
 
-      <div class="ui  segments">
-        {{#each reverse as |installment index|}}
-        <div class="ui inverted segment">
-          <div class="field">
-            <label>Date</label>
-            {{pikaday-input  placeholder="Select Date" value=installment.date}}
-          </div>
-          <div class="field">
-            <label>Date</label>
-            {{input placeholder="Installments / Month"  type="text" value=installment.amount}}
-          </div>
-<div class="ui blue small submit button "   {{action "deleteInstallment" installment }}>Delete</div>
 
-        </div>
-        {{/each}}
-      </div>
 </div>
 
 {{/if}}
@@ -196,9 +173,23 @@
 
 {{/if}}
 
+</div>
+<div class="ui inverted small form sec3-con-b grid">
+  {{#each reverse as |installment index|}}
+  <div class="ui  four wide column   ">
+    <div class="ui inverted segment">
+      <div class="field">
+        <label>Date</label>
+        {{pikaday-input  placeholder="Select Date" value=installment.date}}
+      </div>
+      <div class="field">
+        <label>Amount</label>
+        {{input placeholder="Installments / Month"  type="text" value=installment.amount}}
+      </div>
+    </div>
 
+<div class="ui blue small submit button "   {{action "deleteInstallment" installment }}>Delete</div>
 
-
-
-
+  </div>
+  {{/each}}
 </div>
