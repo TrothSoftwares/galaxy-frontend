@@ -136,6 +136,67 @@
 
 
 
+{{#if (eq sale.status 'Completed')}}
+<div class="ui raised  segments">
+
+  <div class="ui segment">
+    <div class="ui tag labels">
+  <a class="ui label large">
+    Total Amount : {{sale.totalprice}}
+  </a>
+</div>
+  </div>
+
+
+  <div class="ui segment">
+    <div class="ui tag labels">
+  <a class="ui label large">
+    Paid Till Now : {{sale.paidtillnow}}
+  </a>
+</div>
+
+
+<div class="ui segment">
+  <div class="ui tag labels">
+<a class="ui label large">
+  Started Date : {{sale.installments.lastObject.date}}
+</a>
+</div>
+</div>
+
+
+<div class="ui segment">
+  <div class="ui tag labels">
+<a class="ui label large">
+  Ended Date : {{sale.installments.lastObject.date}}
+</a>
+</div>
+</div>
+
+
+<div class="ui dividing header">Payment History </div>
+
+{{#each sale.installments as |installment index|}}
+<div class="ui segment">
+  <div class="ui tag labels">
+<a class="ui label large">
+  Date : {{installment.date}}
+  Amount: {{installment.amount}}
+</a>
+</div>
+</div>
+{{/each}}
+
+
+
+
+
+  </div>
+</div>
+
+{{/if}}
+
+
 
 
 
