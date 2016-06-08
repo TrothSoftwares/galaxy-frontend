@@ -33,7 +33,7 @@
         <tr>
           <td>{{sale.customer.name}}</td>
           <td>{{sale.totalprice}}</td>
-          <td>111</td>
+          <td>{{sale.paidtillnow}}</td>
           <td class="right aligned"> {{#link-to 'dashboard.sales.salehistory.view' sale }}Update{{/link-to}}</td>
         </tr>
         {{/each}}
@@ -55,7 +55,7 @@
         <tr>
           <td>{{sale.customer.name}}</td>
           <td>{{sale.totalprice}}</td>
-          <td>444</td>
+          <td>{{sale.paidtillnow}}</td>
           <td class="right aligned"> {{#link-to 'dashboard.sales.salehistory.view' sale }}View{{/link-to}}</td>
         </tr>
         {{/each}}
