@@ -66,6 +66,7 @@ if(this.get('enableCustomer') ===true){
 
 
         var sale = controller.store.createRecord('sale', {
+          
             status :'Incomplete',
             totalprice :controller.get('totalprice'),
             installpricepermonth : controller.get('installpricepermonth'),
