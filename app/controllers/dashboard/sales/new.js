@@ -105,6 +105,8 @@ if(this.get('enableCustomer') ===true){ //if default customer
      sale = controller.store.createRecord('sale', {
 
        status :'Incomplete',
+       asset :controller.get('asset'),
+       downpayment :controller.get('downpayment'),
        totalprice :controller.get('totalprice'),
        installpricepermonth : controller.get('installpricepermonth'),
        months :controller.get('months'),
@@ -117,9 +119,12 @@ if(this.get('enableCustomer') ===true){ //if default customer
        type: 'success',
        autoClear: true
      });
+
      controller.set('totalprice','');
      controller.set('installpricepermonth','');
      controller.set('months','');
+     controller.set('asset','');
+     controller.set('downpayment','');
      controller.transitionToRoute('dashboard.sales.index');
      });
 }
@@ -140,6 +145,8 @@ if(this.get('enableEnquiryCustomer') ===true){ //if default customer
       sale = controller.store.createRecord('sale', {
 
         status :'Incomplete',
+        asset :controller.get('asset'),
+        downpayment :controller.get('downpayment'),
         totalprice :controller.get('totalprice'),
         installpricepermonth : controller.get('installpricepermonth'),
         months :controller.get('months'),
@@ -159,6 +166,8 @@ if(this.get('enableEnquiryCustomer') ===true){ //if default customer
         controller.set('totalprice','');
         controller.set('installpricepermonth','');
         controller.set('months','');
+        controller.set('asset','');
+        controller.set('downpayment','');
 
       controller.transitionToRoute('dashboard.sales.index');
       });
