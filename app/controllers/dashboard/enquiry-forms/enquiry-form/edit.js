@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+
+  enableNewSale:false,
+
   isCreateFollowupButtonDisabled: Ember.computed( 'message'   ,  function() {
     if( Ember.isEmpty(this.get('message'))
   ){return 'disabled';}
@@ -16,10 +19,31 @@ export default Ember.Controller.extend({
   }),
 
 
+  iscreateSaleButtonEnabled: Ember.computed( 'totalprice'   ,  function() {
+    if( Ember.isEmpty(this.get('totalprice'))
+  ){return 'disabled';}
+  else{return '';}
+  }),
+
+  months : Ember.computed('totalprice','installpricepermonth',function(){
+    if(this.get('totalprice')&&this.get('installpricepermonth') ){
+     return parseInt(this.get('totalprice') / parseInt(this.get('installpricepermonth')));
+   }
+    else{
+      return 0;
+    }
+  }),
+
+
 statuses :["Select","Pending", "Sold" , "Rejected"],
 
 
 actions:{
+
+
+  openNewSale:function(){
+    this.toggleProperty('enableNewSale');
+  },
   selectStatus(status) {
   this.get('enquiry').set('status', status);
   },
@@ -67,6 +91,68 @@ actions:{
     type: 'success',
     autoClear: true
   });
-  }
+},
+
+
+
+closeSupplierModal: function(){
+    Ember.$('.ui.newsale.modal')
+    .modal('hide')
+    ;
+  },
+
+  openSupplierModal: function(){
+    Ember.$('.ui.newsupplier.modal')
+    .modal('show')
+    ;
+  },
+
+
+
+sellToEnquiry:function(){
+
+
+  var controller = this;
+  this.get('enquiry').set('status','Sold');
+  var customer = controller.store.createRecord('customer', {
+    name :this.get('enquiry.name'),
+    address :this.get('enquiry.address'),
+    contact :this.get('enquiry.contact'),
+    email :this.get('enquiry.email')
+  });
+  customer.save().then(function(){
+
+    var   sale = controller.store.createRecord('sale', {
+
+        status :'Incomplete',
+        totalprice :controller.get('totalprice'),
+        installpricepermonth : controller.get('installpricepermonth'),
+        months :controller.get('months'),
+        customer :customer
+
+
+      });
+
+      sale.save().then(function(){
+        controller.notifications.addNotification({
+        message: 'Saved!' ,
+        type: 'success',
+        autoClear: true
+      });
+
+
+        controller.set('totalprice','');
+        controller.set('installpricepermonth','');
+        controller.set('months','');
+        controller.set('enableNewSale',false);
+
+      controller.transitionToRoute('dashboard.sales.index');
+      });
+  });
 }
+
+
+
+}
+
 });

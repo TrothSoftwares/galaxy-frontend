@@ -54,6 +54,26 @@
 
         </div>
         <div class="ui blue small submit button {{isCreateFollowupButtonDisabled}}"   {{action "updateFollowup"}}>Save</div>
+        {{#if (eq enableNewSale false)}}
+        <div class="ui blue small submit button }}"   {{action "openNewSale"}}>Sell</div>
+        {{/if}}
+        {{#if (eq enableNewSale true)}}
+        <div class="eight wide column">
+          <div class="ui dividing inverted header">Sales Info </div>
+
+          <div class="field ">
+            <label>Total Price</label>
+            {{input placeholder="Total Price"  type="text"   value=totalprice}}
+          </div>
+          <div class="field">
+            <label>Installments / Month</label>
+            {{input placeholder="Installments / Month"  type="text" value=installpricepermonth}}
+          </div>
+          
+              <div class="ui blue small submit button {{iscreateSaleButtonEnabled}}"   {{action "sellToEnquiry"}}>Confirm</div>
+
+        </div>
+        {{/if}}
 
 
       </div>
