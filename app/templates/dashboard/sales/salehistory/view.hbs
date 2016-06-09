@@ -176,7 +176,7 @@
 <div class="clearfix"></div>
 <div class="ui inverted small form sec3-con-b grid">
   <div class="ui  four wide column    "   >
-    <div class="ui black submit insta-btn fluid button " {{action "newInstallment"}}>
+    <div class="ui center aligned black submit insta-btn fluid button " {{action "newInstallment"}}>
 <i class="outline plus huge icon"></i><br><br>
 New Installment
 
@@ -184,18 +184,22 @@ New Installment
 </div>
   {{#each reverse as |installment index|}}
   <div class="ui  four wide column   ">
-    <div class="ui inverted segment">
-      <div class="field">
-        <label>Date</label>
-        {{pikaday-input  placeholder="Select Date" value=installment.date}}
+    <div class="ui inverted segment two column grid">
+      <div class="ui left aligned column inst-a ">
+      <h3>OCTOBER</h3>
+        2016
+
       </div>
-      <div class="field">
-        <label>Amount</label>
-        {{input placeholder="Installments / Month"  type="text" value=installment.amount}}
+      <div class="ui column inst-b">
+        <div class="field">
+          <label>Date</label>
+          {{pikaday-input  placeholder="Select Date" value=installment.date}}
+        </div>
+          <div class="ui blue small submit fluid button "     >Rceive</div>
       </div>
+
     </div>
 
-<div class="ui blue small submit button "   {{action "deleteInstallment" installment }}>Delete</div>
 
   </div>
   {{/each}}
