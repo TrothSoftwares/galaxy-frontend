@@ -102,7 +102,6 @@
 
       <div class="ui blue small submit button {{isupdateSaleButtonEnabled}}"   {{action "updateSale"}}>Save</div>
 
-      <div class="ui blue small submit button "   {{action "newInstallment"}}>New Installment</div>
 
 
 </div>
@@ -174,7 +173,15 @@
 {{/if}}
 
 </div>
+<div class="clearfix"></div>
 <div class="ui inverted small form sec3-con-b grid">
+  <div class="ui  four wide column    "   >
+    <div class="ui black submit insta-btn fluid button " {{action "newInstallment"}}>
+<i class="outline plus huge icon"></i><br><br>
+New Installment
+
+</div>
+</div>
   {{#each reverse as |installment index|}}
   <div class="ui  four wide column   ">
     <div class="ui inverted segment">
