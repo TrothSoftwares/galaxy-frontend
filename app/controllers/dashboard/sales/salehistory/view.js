@@ -2,7 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-
+isPayButtonEnabled: Ember.computed( 'installmentdate'   ,  function() {
+  if( Ember.isEmpty(this.get('installmentdate'))
+){return 'disabled';}
+  else{return '';}
+  }),
 
 ismarkCompletedButtonActive: Ember.computed( 'sale.balanceamount'   ,  function() {
   if(this.get('sale.balanceamount') !== 0)
@@ -81,12 +85,13 @@ ismarkCompletedButtonActive: Ember.computed( 'sale.balanceamount'   ,  function(
       var controller = this;
        var sale = this.get('sale');
       var installment = this.store.createRecord('installment',{
-        amount: 0,
-        date: new Date(),
+        amount: sale.get('installpricepermonth'),
+        date: this.get('installmentdate'),
         sale: sale
       });
       installment.save().then(function(){
-        controller.get('reverse').unshiftObject(installment);
+        // controller.get('reverse').pushObject(installment);
+        controller.set('installmentdate','');
       });
     },
 

@@ -11,7 +11,7 @@
 </div>
 </div>
 
-<div class="ui inverted small form sec3-con grid">
+<div class="ui inverted  form sec3-con grid">
   <div class="eight wide column">
 <div class="ui dividing inverted header">Customer Info</div>
 
@@ -73,11 +73,15 @@
 {{#if (eq sale.status 'Incomplete')}}
 
 
-<div class="eight wide column">
+<div class="eight wide column ">
   <div class="ui dividing inverted header">Sales Info </div>
   <div class="seg1">
 <div class="ui right aligned inverted dividing tiny header">Total Price</div>
 <div class="ui right aligned inverted  bigc header">Rs. {{sale.totalprice}} /-</div>
+</div>
+<div class="seg12">
+<div class="ui right aligned inverted dividing tiny header">Down Payment</div>
+<div class="ui right aligned inverted  bigc header">Rs. 10000 /-</div>
 </div>
 
   <div class="seg2">
@@ -150,6 +154,7 @@
 </div>
 
 
+
 <div class="ui dividing header">Payment History </div>
 
 {{#each sale.installments as |installment index|}}
@@ -174,7 +179,7 @@
 
 </div>
 <div class="clearfix"></div>
-<div class="ui inverted small form sec3-con-b grid">
+<!-- <div class="ui inverted small form sec3-con-b grid">
   <div class="ui  four wide column    "   >
     <div class="ui center aligned black submit insta-btn fluid button " {{action "newInstallment"}}>
 <i class="outline plus huge icon"></i><br><br>
@@ -203,4 +208,55 @@ New Installment
 
   </div>
   {{/each}}
+</div> -->
+<div class="ui inverted small form sec3-con-b ">
+  <div class="ui inverted dividing header">New Installment</div>
+  <div class="ui grid">
+<div class="six wide column ">
+  <div class="field">
+    <label>Date</label>
+    {{pikaday-input  placeholder="Select Date" value=installmentdate}}
+  </div>
+</div>
+<!-- <div class="four wide column ">
+  <div class="field">
+    <label>Installment Month  </label>
+    {{input placeholder="Month"  type="text"}}
+  </div>
+</div> -->
+<div class="six wide column ">
+  <div class="field">
+    <label>Installment Amount  </label>
+    {{input placeholder=""  type="text" value=sale.installpricepermonth readonly="true"}}
+  </div>
+</div>
+<div class="right aligned four wide column ">
+  <div class="ui  field">
+    <div class="ui submit tiny primary button {{isPayButtonEnabled}}" style="margin-top:22px" {{action "newInstallment"}}>Pay </div>
+  </div>
+</div>
+</div>
+
+
+</div>
+
+<div class="sec3-con-b" >
+  <div class="ui inverted dividing header"> Installment History</div>
+  <table class="ui celled structured table">
+  <thead>
+    <tr>
+    <th>Sl.No</th>
+    <th>Date</th>
+    <th>Amount </th>
+   </tr></thead>
+  <tbody>
+    {{#each sale.installments as |installment index|}}
+    <tr>
+      <td>{{incrementone index}}</td>
+      <td>{{installment.date}}</td>
+      <td>{{{installment.amount}}} </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
 </div>
