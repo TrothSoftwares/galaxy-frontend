@@ -6,9 +6,12 @@ export default Ember.Controller.extend({
   enableNewCustomer :false,
   enableCustomer :false,
 
-  months : Ember.computed('totalprice','installpricepermonth',function(){
-    if(this.get('totalprice')&&this.get('installpricepermonth') ){
-     return parseInt(this.get('totalprice') / parseInt(this.get('installpricepermonth')));
+  months : Ember.computed('totalprice' ,'downpayment','installpricepermonth',function(){
+    if(this.get('totalprice')&&this.get('installpricepermonth') && this.get('downpayment') ){
+      var balanceDown =  parseInt(this.get('totalprice')) - parseInt(this.get('downpayment'));
+
+      var calcMonths = balanceDown /  parseInt(this.get('installpricepermonth'));
+     return calcMonths;
    }
     else{
       return 0;
