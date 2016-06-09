@@ -3,6 +3,12 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
 
+   salemonth :["Januvary","Februvary","March","April","May","June","July","August","September","October","November","December"],
+   saleMonthtext: Ember.computed( 'sale.createdatMonth'   ,function(){
+     return this.get('salemonth').objectAt(this.get('sale.createdatMonth'));
+   }),
+
+
 
 ismarkCompletedButtonActive: Ember.computed( 'sale.balanceamount'   ,  function() {
   if(this.get('sale.balanceamount') !== 0)
@@ -82,7 +88,8 @@ ismarkCompletedButtonActive: Ember.computed( 'sale.balanceamount'   ,  function(
        var sale = this.get('sale');
       var installment = this.store.createRecord('installment',{
         amount: 0,
-        date: new Date(),
+        // date: new Date(),
+        date: '',
         sale: sale
       });
       installment.save().then(function(){

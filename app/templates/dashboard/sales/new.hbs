@@ -100,9 +100,21 @@
   <div class="ui dividing inverted header">Sales Info </div>
 
   <div class="field ">
-    <label>Total Price</label>
-    {{input placeholder="Total Price"  type="text"   value=totalprice}}
+    <label>Asset Name</label>
+    {{input placeholder="Asset Name"  type="text"   value=asset}}
   </div>
+
+
+  <div class="field ">
+    <label>Total Price</label>
+    {{input placeholder="Total Price"  type="number"   value=totalprice}}
+  </div>
+
+  <div class="field ">
+    <label>Down Payment</label>
+    {{input placeholder="Down Payment"  type="number"   value=downpayment}}
+  </div>
+
   <div class="field">
     <label>Installments / Month</label>
     {{input placeholder="Installments / Month"  type="text" value=installpricepermonth}}

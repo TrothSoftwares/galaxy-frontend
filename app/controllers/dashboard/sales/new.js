@@ -15,8 +15,9 @@ export default Ember.Controller.extend({
     }
   }),
 
-  iscreateSaleButtonEnabled: Ember.computed( 'totalprice'   ,  function() {
-    if( Ember.isEmpty(this.get('totalprice'))
+  iscreateSaleButtonEnabled: Ember.computed( 'totalprice' , 'asset'   ,  function() {
+    if( Ember.isEmpty(this.get('totalprice'))||
+     Ember.isEmpty(this.get('asset'))
   ){return 'disabled';}
   else{return '';}
   }),
@@ -59,6 +60,8 @@ export default Ember.Controller.extend({
           sale = controller.store.createRecord('sale', {
 
             status :'Incomplete',
+            asset :controller.get('asset'),
+            downpayment :controller.get('downpayment'),
             totalprice :controller.get('totalprice'),
             installpricepermonth : controller.get('installpricepermonth'),
             months :controller.get('months'),
@@ -77,6 +80,9 @@ export default Ember.Controller.extend({
           controller.set('newcustomercontact','');
           controller.set('newcustomeremail','');
 
+
+          controller.set('asset','');
+          controller.set('downpayment','');
           controller.set('totalprice','');
           controller.set('installpricepermonth','');
           controller.set('months','');
