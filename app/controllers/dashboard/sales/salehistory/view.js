@@ -8,6 +8,14 @@ isPayButtonEnabled: Ember.computed( 'installmentdate'   ,  function() {
   else{return '';}
   }),
 
+
+  //  salemonth :["Januvary","Februvary","March","April","May","June","July","August","September","October","November","December"],
+  //  saleMonthtext: Ember.computed( 'sale.createdatMonth'   ,function(){
+  //    return this.get('salemonth').objectAt(this.get('sale.createdatMonth'));
+  //  }),
+
+
+
 ismarkCompletedButtonActive: Ember.computed( 'sale.balanceamount'   ,  function() {
   if(this.get('sale.balanceamount') !== 0)
   {return 'disabled';}
@@ -87,6 +95,7 @@ ismarkCompletedButtonActive: Ember.computed( 'sale.balanceamount'   ,  function(
       var installment = this.store.createRecord('installment',{
         amount: sale.get('installpricepermonth'),
         date: this.get('installmentdate'),
+
         sale: sale
       });
       installment.save().then(function(){
