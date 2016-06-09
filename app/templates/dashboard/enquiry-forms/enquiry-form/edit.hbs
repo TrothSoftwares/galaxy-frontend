@@ -16,6 +16,15 @@
   </div>
 
 
+  {{#power-select
+        search=(action "searchRepo")
+        selected=selected
+        onchange=(action (mut selected))
+        as |repo|
+      }}
+        {{repo.attributes.productname}}
+      {{/power-select}}
+
           <div class="field">
             <label>Client Message</label>
             {{input placeholder="Client Message" type="text" value=message}}
@@ -69,7 +78,7 @@
             <label>Installments / Month</label>
             {{input placeholder="Installments / Month"  type="text" value=installpricepermonth}}
           </div>
-          
+
               <div class="ui blue small submit button {{iscreateSaleButtonEnabled}}"   {{action "sellToEnquiry"}}>Confirm</div>
 
         </div>

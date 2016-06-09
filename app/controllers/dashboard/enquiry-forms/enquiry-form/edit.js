@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+  ajax: Ember.inject.service(),
 
   enableNewSale:false,
 
@@ -39,6 +40,17 @@ statuses :["Select","Pending", "Sold" , "Rejected"],
 
 
 actions:{
+
+
+  searchRepo(term) {
+          if (Ember.isBlank(term)) { return []; }
+
+          const url = `//zahid-backend.herokuapp.com/products?direction=asc&page=1&productname=${term}`;
+          // const url = `//api.github.com/search/repositories?q=${term}`;
+          // return this.get('ajax')({ url }).then(json => json.items);
+
+          return this.get('ajax').request(url).then(json=>json.data);
+        },
 
 
   openNewSale:function(){
