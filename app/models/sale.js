@@ -36,9 +36,10 @@ balanceamount : Ember.computed('totalprice','paidtillnow',function(){
 
 
 months: Ember.computed('balanceamount' , 'installpricepermonth', function() {
-    // let balance  = parseInt(this.get('totalprice')) - parseInt(this.get('paidtillnow'));
 
-    let months = this.get('balanceamount') / this.get('installpricepermonth');
+     let balance  = parseInt(this.get('totalprice') - parseInt(this.get('downpayment'))- parseInt(this.get('paidtillnow')));
+
+    let months = balance / this.get('installpricepermonth');
     return Math.round(months);
   }),
 });
