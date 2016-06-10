@@ -112,6 +112,11 @@ ismarkCompletedButtonActive: Ember.computed( 'sale.balanceamount'   ,  function(
       var sale = this.get('sale');
       sale.set('status','Completed');
       sale.save();
+    },
+
+
+    printPage:function(){
+      window.print();
     }
 
 
