@@ -7,7 +7,7 @@
   </div>
   {{/link-to}}
   <div class="ui header item">
-  New Sale
+  Update Sale ID :#{{sale.id}}
 </div>
 </div>
 
@@ -85,7 +85,7 @@
 </div>
 
   <div class="seg2">
-  <div class="ui right aligned inverted dividing tiny header">Amount Paid</div>
+  <div class="ui right aligned inverted dividing tiny header">Total Installment Amount Paid</div>
   <div class="ui right aligned inverted  bigc header">Rs. {{sale.paidtillnow}} /-</div>
   </div>
   <div class="seg3">
@@ -117,98 +117,39 @@
 
 
 {{#if (eq sale.status 'Completed')}}
-<div class="ui raised  segments">
-
-  <div class="ui segment">
-    <div class="ui tag labels">
-  <a class="ui label large">
-    Total Amount : {{sale.totalprice}}
-  </a>
-</div>
+<div class="eight wide column ">
+  <div class="ui dividing inverted header">Sales Info </div>
+  <div class="seg4">
+  <div class="ui right aligned inverted dividing tiny header">Total Price</div>
+  <div class="ui right aligned inverted  bigc header">  {{sale.totalprice}} </div>
   </div>
-
-
-  <div class="ui segment">
-    <div class="ui tag labels">
-  <a class="ui label large">
-    Paid Till Now : {{sale.paidtillnow}}
-  </a>
+  <div class="seg1">
+<div class="ui right aligned inverted dividing tiny header">Total Installment Amount Paid</div>
+<div class="ui right aligned inverted  bigc header">Rs. {{sale.paidtillnow}} /-</div>
+</div>
+<div class="seg12">
+<div class="ui right aligned inverted dividing tiny header">Down Payment</div>
+<div class="ui right aligned inverted  bigc header">Rs.{{sale.downpayment}} /-</div>
 </div>
 
-
-<div class="ui segment">
-  <div class="ui tag labels">
-<a class="ui label large">
-  Started Date : {{sale.installments.lastObject.date}}
-</a>
-</div>
-</div>
-
-
-<div class="ui segment">
-  <div class="ui tag labels">
-<a class="ui label large">
-  Ended Date : {{sale.installments.lastObject.date}}
-</a>
-</div>
-</div>
-
-
-
-<div class="ui dividing header">Payment History </div>
-
-{{#each sale.installments as |installment index|}}
-<div class="ui segment">
-  <div class="ui tag labels">
-<a class="ui label large">
-  Date : {{installment.date}}
-  Amount: {{installment.amount}}
-</a>
-</div>
-</div>
-{{/each}}
-
-
-
-
-
+  <div class="seg2">
+  <div class="ui right aligned inverted dividing tiny header">Started Date</div>
+  <div class="ui right aligned inverted  bigc header"> {{sale.installments.firstObject.date}}  </div>
   </div>
+  <div class="seg3">
+  <div class="ui right aligned inverted dividing tiny header">Closed Date </div>
+  <div class="ui right aligned inverted  bigc header"> {{sale.installments.lastObject.date}} </div>
+  </div>
+  <div class="clearfix"></div>
 </div>
+
 
 {{/if}}
 
 </div>
 <div class="clearfix"></div>
-<!-- <div class="ui inverted small form sec3-con-b grid">
-  <div class="ui  four wide column    "   >
-    <div class="ui center aligned black submit insta-btn fluid button " {{action "newInstallment"}}>
-<i class="outline plus huge icon"></i><br><br>
-New Installment
 
-</div>
-</div>
-  {{#each reverse as |installment index|}}
-  <div class="ui  four wide column   ">
-    <div class="ui inverted segment two column grid">
-      <div class="ui left aligned column inst-a ">
-      <h3>{{saleMonthtext}}</h3>
-        2016
-
-      </div>
-      <div class="ui column inst-b">
-        <div class="field">
-          <label>Date</label>
-          {{pikaday-input  placeholder="Select Date" value=installment.date}}
-        </div>
-          <div class="ui blue small submit fluid button "     >Receive</div>
-      </div>
-
-    </div>
-
-
-  </div>
-  {{/each}}
-</div> -->
+{{#if (eq sale.status 'Incomplete')}}
 <div class="ui inverted small form sec3-con-b ">
   <div class="ui inverted dividing header">New Installment</div>
   <div class="ui grid">
@@ -218,12 +159,7 @@ New Installment
     {{pikaday-input  placeholder="Select Date" value=installmentdate}}
   </div>
 </div>
-<!-- <div class="four wide column ">
-  <div class="field">
-    <label>Installment Month  </label>
-    {{input placeholder="Month"  type="text"}}
-  </div>
-</div> -->
+
 <div class="six wide column ">
   <div class="field">
     <label>Installment Amount  </label>
@@ -237,11 +173,13 @@ New Installment
 </div>
 </div>
 
-
+<div class="ui  divider"></div>
 </div>
+{{/if}}
 
 <div class="sec3-con-b" >
-  <div class="ui inverted dividing header"> Installment History</div>
+  <div class="ui inverted left floated  header"> Installment History</div>
+  <div class="ui tiny right floated primary button">Print</div>
   <table class="ui celled structured table">
   <thead>
     <tr>

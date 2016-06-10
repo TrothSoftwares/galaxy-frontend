@@ -1,8 +1,8 @@
 
-<div class="ui left visible inverted vertical very thin sidebar labeled icon menu lato no-print" style="width:90px;  ">
+<div class="ui left visible inverted vertical very thin light-fonted sidebar labeled icon menu lato no-print" style="width:90px;  ">
   <div class="item" style="padding:5px 5px">
     {{#link-to 'dashboard'   }}
-<img src="/images/gal.png" alt="" class="img-responsive" />
+<img src="/images/demo.png" alt="" class="img-responsive" />
     {{/link-to}}
   </div>
 
@@ -15,13 +15,13 @@
 
   {{#link-to 'dashboard.enquiry-forms.index'  class="item"}}
     <i class="block  layout icon" style="color:#00A1B1"></i>
-    Pending Enquiries
+     Enquiries
   {{/link-to}}
-
   {{#link-to 'dashboard.enquiry-forms.new'  class="item"}}
     <i class="block  layout icon" style="color:#00A1B1"></i>
     New Enquiry
   {{/link-to}}
+
 
   {{#link-to 'dashboard.customers.index'  class="item"}}
     <i class="users  icon" style="color:#abc"></i>
@@ -34,7 +34,7 @@ Sales
 
 
 
-  <a class="item" {{action "logout"}} >
+  <a class="item" {{action "logout"}} style="margin-top:300%" >
     <i class="sign out icon" ></i>
     Logout
   </a>
