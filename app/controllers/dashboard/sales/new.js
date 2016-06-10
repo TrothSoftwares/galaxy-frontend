@@ -18,9 +18,14 @@ export default Ember.Controller.extend({
     }
   }),
 
-  iscreateSaleButtonEnabled: Ember.computed( 'totalprice' , 'asset'   ,  function() {
+  iscreateSaleButtonEnabled: Ember.computed( 'totalprice' , 'asset' , 'enableCustomer' , 'enableNewCustomer' , 'enableEnquiryCustomer'   ,  function() {
     if( Ember.isEmpty(this.get('totalprice'))||
-     Ember.isEmpty(this.get('asset'))
+     Ember.isEmpty(this.get('asset'))||
+     (
+     this.get('enableCustomer') === false &&
+     this.get('enableNewCustomer') === false &&
+     this.get('enableEnquiryCustomer') === false
+    )
   ){return 'disabled';}
   else{return '';}
   }),
