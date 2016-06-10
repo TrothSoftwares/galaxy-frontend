@@ -23,6 +23,7 @@
       <thead>
         <tr>
           <th>Name</th>
+          <th>Asset</th>
           <th>Total</th>
           <th>Paid Till Now</th>
           <th class="right aligned">Update</th>
@@ -32,8 +33,9 @@
         {{#each salesPending as |sale index|}}
         <tr>
           <td>{{sale.customer.name}}</td>
+          <td>{{sale.asset}}</td>
           <td>{{sale.totalprice}}</td>
-          <td>{{sale.paidtillnow}}</td>
+          <td>{{sale.paidtillnowWithDownpayment}}</td>
           <td class="right aligned"> {{#link-to 'dashboard.sales.salehistory.view' sale }}Update{{/link-to}}</td>
         </tr>
         {{/each}}
@@ -45,6 +47,7 @@
       <thead>
         <tr>
           <th>Name</th>
+          <th>Asset</th>
           <th>Total</th>
           <th>Paid Till Now</th>
           <th class="right aligned">View</th>
@@ -54,8 +57,9 @@
         {{#each salesHistory as |sale index|}}
         <tr>
           <td>{{sale.customer.name}}</td>
+          <td>{{sale.asset}}</td>
           <td>{{sale.totalprice}}</td>
-          <td>{{sale.paidtillnow}}</td>
+          <td>{{sale.paidtillnowWithDownpayment}}</td>
           <td class="right aligned"> {{#link-to 'dashboard.sales.salehistory.view' sale }}View{{/link-to}}</td>
         </tr>
         {{/each}}

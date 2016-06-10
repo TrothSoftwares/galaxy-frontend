@@ -25,12 +25,18 @@ createdatMonth : Ember.computed('createdat',function(){
 
 
 paidtillnow: function() {
-    return this.get('installments').reduce(function(sum, split) {
+    return   this.get('installments').reduce(function(sum, split) {
         return sum + parseInt(split.get('amount'));
     }, 0);
 }.property('installments.@each.amount'),
 
-balanceamount : Ember.computed('totalprice','paidtillnow',function(){
+paidtillnowWithDownpayment: function() {
+    return   this.get('downpayment') + this.get('installments').reduce(function(sum, split) {
+        return sum + parseInt(split.get('amount'));
+    }, 0);
+}.property('installments.@each.amount'),
+
+balanceamount : Ember.computed('totalprice','paidtillnow' , 'downpayment',function(){
   return parseInt(this.get('totalprice') - parseInt(this.get('downpayment'))- parseInt(this.get('paidtillnow')));
 }),
 
